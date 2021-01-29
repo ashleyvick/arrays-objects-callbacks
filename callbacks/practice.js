@@ -26,7 +26,10 @@
   Write a function called first that takes in two parameters, an array and a callback function.
   Then invoke the callback function, passing in the first element in the array as it's argument.
 */
-
+function first (arr, cb){
+  cb(arr[0])
+}
+first(names)
 // Code Here 
 
 // Do not edit the code below.
@@ -46,6 +49,10 @@ first(names, function(firstName){
   Write a function called last that takes in an array and a callback function. 
   Then invoke the callback, passing in the last element in the array as the argument.
 */
+function last (arr, cb){
+  cb(arr[arr.length-1])
+}
+last(names)
 
 //Code Here
 
@@ -66,6 +73,10 @@ last(names, function(lastName){
 */
 
 //Code Here
+function multiply (num1, num2 ,cb) {
+  cb(num1 * num2)
+}
+multiply()
 
 // Do not edit the code below.
 multiply(4, 3, function(answer){
@@ -83,6 +94,14 @@ multiply(4, 3, function(answer){
   If it does, invoke the callback with true as the argument. 
   If the name does not exist, invoke the callback with false as the argument.
 */
+function contains (arr, name, cb){
+  if (arr.includes(name)) {
+    cb(true)
+  }else {
+    cb(false)
+  }
+  }
+contains()
 
 //Code Here 
 
@@ -106,6 +125,17 @@ contains(names, 'Colt', function(result){
 */
 
 //Code Here
+function uniq (arr, cb){
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[i]=== arr[j]){
+        arr.splice (j,1)
+      }
+    }
+  }
+  cb(arr)
+}
+
 
 // Do not edit the code below.
 uniq(names, function(uniqArr){
@@ -123,6 +153,11 @@ uniq(names, function(uniqArr){
 */
 
 //Code Here 
+function each (arr, cb){
+  for (let i=0 ; i < arr.length ; i++) {
+    cb(arr[i], (i));
+  }
+}
 
 // Do not edit the code below.
 each(names, function(item, indice){
@@ -140,6 +175,15 @@ each(names, function(item, indice){
 */
 
 // Code here
+
+function getUserById(users, id, cb){
+  for (let i = 0; i < users.length; i++) {
+    if (users[i].id === id){
+      cb (users[i])
+    }
+  }
+}
+
 
 // Do not edit the code below.
 var users = [
